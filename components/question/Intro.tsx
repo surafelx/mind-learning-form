@@ -6,7 +6,9 @@ export function Intro() {
 
   return (
     <>
-      <QuestionBoxHeading>Mind Learning Ethiopia</QuestionBoxHeading>
+      <h1 style={{ fontSize: "6rem", fontWeight: 800 }}>
+        Mind Learning Ethiopia
+      </h1>
       <QuestionBoxPara>
         Learn. Grow. Elevate.
         {/* <br />

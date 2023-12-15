@@ -33,13 +33,12 @@ export function EmailInput() {
   return (
     <>
       <QuestionNumHeading questionNum={3}>
-        Email you&apos;d like to register with? *
+        Phone Number you&apos;d like to register with? *
       </QuestionNumHeading>
 
       <QuestionBoxPara>
-        We will keep all our communications with you through this email. Do
-        check your span inbox if you can&apos;t find our application received
-        email.
+        We will keep all our communications with you through this phone. Do
+        check your messages if you didn&apos;t receive a call.
       </QuestionBoxPara>
 
       <QuestionInputText

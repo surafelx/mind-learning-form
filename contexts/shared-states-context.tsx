@@ -3,6 +3,7 @@ import { TOTAL_QUESTIONS } from "@/constants";
 import { ObjectType, QuestionNumType, SharedStatesContextType } from "@/types";
 import { createContext, ReactNode, useContext, useState } from "react";
 import { useQuestions } from "@/contexts";
+import axios from "axios";
 
 const SharedStatesContext = createContext<SharedStatesContextType>({
   questionNum: { prev: null, now: 0 },
@@ -36,24 +37,16 @@ export function SharedStatesProvider({ children }: SharedStatesProviderType) {
         : { prev: prevValue.now, now: prevValue.now + 1 }
     );
     const { prev, now } = questionNum;
-    if (prev == 3 && now == 4) {
+    if (prev == 3 && now == 4 && state.firstName) {
       console.log(state);
-      fetch(
-        "https://script.google.com/macros/s/AKfycbw7oGbEAcLJx7OmUf27Ur2rQ6CuygKTUBIufskgZUBBb06uetaBM1sa7qUszQABhIaimQ/exec",
-        {
-          method: "POST",
-          body: JSON.stringify(state),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-        })
-        .catch((error) => {
-          console.log(error);
+      axios
+        .post(
+          "https://sheet.best/api/sheets/234b6618-e473-43ea-8e41-884d41850300",
+          state
+        )
+        .then((response) => {
+          console.log(response);
+          state.firstName = "";
         });
     }
   }

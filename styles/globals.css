@@ -4,19 +4,21 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: "Poppins", "Questrial";
+  font-weight: 600;
 }
 
 :root {
-  --body-background-color: #000;
-  --btn-text-color: #fff;
+  --body-background-color: #fff;
+  --btn-text-color: #000;
 
   --dropdown-background-color: rgba(255, 255, 255, 0.1);
 
   --error-background-color: rgb(247, 230, 230);
   --error-text-color: rgb(175, 4, 4);
 
-  --para-text-color: rgba(255, 255, 255, 0.7);
-  --placeholder-color: rgba(255, 255, 255, 0.3);
+  --para-text-color: #000;
+  --placeholder-color: #808080;
 
   --primary-color: rgb(0, 119, 255);
   --primary-light-color: rgb(38, 139, 255);
@@ -34,6 +36,7 @@ html::-webkit-scrollbar {
 
 body {
   background-color: var(--body-background-color);
+  background-image: url("/background.png"); /* Replace 'background.jpg' with the actual name of your image file */
   font-size: 1.6rem;
 }
 

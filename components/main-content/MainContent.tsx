@@ -66,7 +66,12 @@ export function MainContent() {
             inViewSlide={prev === 4 ? "down" : "up"}
           />
         )}
-        {prev === 3 && <div style={{ background: "red" }}>Hello</div>}
+        {prev === 3 && (
+          <div>
+            <h1 style={{ fontSize: "4rem", textAlign: "center" }}>Thank You</h1>
+            <p style={{ textAlign: "center" }}>Press Enter to Send Your Data</p>
+          </div>
+        )}
       </div>
     </section>
   );
