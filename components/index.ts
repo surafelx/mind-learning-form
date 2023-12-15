@@ -7,6 +7,6 @@ export { ProgressBar } from "./progress-bar/ProgressBar";
 export { Question } from "./question/Question";
 export { QuestionBoxHeading } from "./question-box-heading/QuestionBoxHeading";
 export { QuestionBoxPara } from "./question-box-para/QuestionBoxPara";
-export { QuestionInputIndustries } from "./question-input-industries/QuestionInputIndustries";
+// export { QuestionInputIndustries } from "./question-input-industries/QuestionInputIndustries";
 export { QuestionInputText } from "./question-input-text/QuestionInputText";
 export { QuestionNumHeading } from "./question-num-heading/QuestionNumHeading";

@@ -6,14 +6,7 @@ export type QuestionProps = {
   readonly outView: boolean;
   readonly outViewSlide: "up" | "down" | "";
   readonly isRendered?: boolean;
-  readonly type:
-    | "intro"
-    | "firstName"
-    | "lastName"
-    | "industry"
-    | "role"
-    | "goal"
-    | "email";
+  readonly type: "intro" | "firstName" | "role" | "email";
 };
 
 export type IndustriesProps = {

@@ -32,7 +32,7 @@ export function EmailInput() {
 
   return (
     <>
-      <QuestionNumHeading questionNum={6}>
+      <QuestionNumHeading questionNum={3}>
         Email you&apos;d like to register with? *
       </QuestionNumHeading>
 
@@ -43,8 +43,8 @@ export function EmailInput() {
       </QuestionBoxPara>
 
       <QuestionInputText
-        type="email"
-        placeholder="name@example.com"
+        type="tel"
+        placeholder="0911234567"
         value={email}
         onChange={handleInputChange}
       />

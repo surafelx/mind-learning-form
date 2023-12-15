@@ -2,6 +2,7 @@
 import { TOTAL_QUESTIONS } from "@/constants";
 import { ObjectType, QuestionNumType, SharedStatesContextType } from "@/types";
 import { createContext, ReactNode, useContext, useState } from "react";
+import { useQuestions } from "@/contexts";
 
 const SharedStatesContext = createContext<SharedStatesContextType>({
   questionNum: { prev: null, now: 0 },
@@ -19,6 +20,7 @@ type SharedStatesProviderType = {
 };
 
 export function SharedStatesProvider({ children }: SharedStatesProviderType) {
+  const { state } = useQuestions();
   const [questionNum, setQuestionNum] = useState<QuestionNumType>({
     prev: null,
     now: 0,
@@ -33,6 +35,27 @@ export function SharedStatesProvider({ children }: SharedStatesProviderType) {
         ? { ...prevValue }
         : { prev: prevValue.now, now: prevValue.now + 1 }
     );
+    const { prev, now } = questionNum;
+    if (prev == 3 && now == 4) {
+      console.log(state);
+      fetch(
+        "https://script.google.com/macros/s/AKfycbw7oGbEAcLJx7OmUf27Ur2rQ6CuygKTUBIufskgZUBBb06uetaBM1sa7qUszQABhIaimQ/exec",
+        {
+          method: "POST",
+          body: JSON.stringify(state),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   }
 
   function handleOkClick() {
@@ -43,6 +66,8 @@ export function SharedStatesProvider({ children }: SharedStatesProviderType) {
     );
   }
 
+  // AKfycbw7oGbEAcLJx7OmUf27Ur2rQ6CuygKTUBIufskgZUBBb06uetaBM1sa7qUszQABhIaimQ
+  // https://script.google.com/macros/s/AKfycbw7oGbEAcLJx7OmUf27Ur2rQ6CuygKTUBIufskgZUBBb06uetaBM1sa7qUszQABhIaimQ/exec
   const value = {
     questionNum,
     setQuestionNum,

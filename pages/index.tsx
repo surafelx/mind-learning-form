@@ -24,7 +24,7 @@ export default function Home() {
         <ProgressBar width={percent} />
         <Image
           src="/growth-x-logo.png"
-          alt="GrowthX logo"
+          alt="Mind Learning Logo"
           width={96}
           height={24}
         />

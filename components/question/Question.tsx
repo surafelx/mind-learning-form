@@ -3,10 +3,10 @@ import classNames from "classnames";
 import {
   EmailInput,
   FirstNameInput,
-  GoalInput,
-  IndustryInput,
+  // GoalInput,
+  // IndustryInput,
   Intro,
-  LastNameInput,
+  // LastNameInput,
   RoleInput,
 } from "./index";
 import styles from "./Question.module.css";
@@ -33,10 +33,7 @@ export function Question({
     >
       {type === "intro" && <Intro />}
       {type === "firstName" && <FirstNameInput />}
-      {type === "lastName" && <LastNameInput />}
-      {type === "industry" && <IndustryInput />}
       {type === "role" && <RoleInput />}
-      {type === "goal" && <GoalInput />}
       {type === "email" && <EmailInput />}
     </div>
   );

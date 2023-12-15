@@ -1,5 +1,5 @@
 import { useQuestions, useSharedStates } from "@/contexts";
-import { isNotValidEmail, isTaskSpecificEmail } from "@/utils";
+import { isNotValidPhone } from "@/utils";
 import { useEffect } from "react";
 
 export function useHandleKeypress() {
@@ -21,61 +21,20 @@ export function useHandleKeypress() {
             firstName: "Please fill this in",
           }));
           return;
-        } else if (now + 1 === 3 && lastName === "") {
-          setErrorMsg((prevValue) => ({
-            ...prevValue,
-            lastName: "Please fill this in",
-          }));
-          return;
-        } else if (now + 1 === 4 && industry === "") {
-          setErrorMsg((prevValue) => ({
-            ...prevValue,
-            industry: "Oops! Please make a selection",
-          }));
-          return;
-        } else if (now + 1 === 5 && role === "") {
+        } else if (now + 1 === 3 && role === "") {
           setErrorMsg((prevValue) => ({
             ...prevValue,
             role: "Oops! Please make a selection",
           }));
           return;
-        } else if (now + 1 === 6 && goals.length === 0) {
-          setErrorMsg((prevValue) => ({
-            ...prevValue,
-            goals: "Oops! Please make a selection",
-          }));
-          return;
-        } else if (now + 1 === 6 && goals.length === 1) {
-          setErrorMsg((prevValue) => ({
-            ...prevValue,
-            goals: "Please select more choices",
-          }));
-          return;
-        } else if (now + 1 === 7 && email === "") {
-          setErrorMsg((prevValue) => ({
-            ...prevValue,
-            email: "Please fill this in",
-          }));
-          return;
-        } else if (now + 1 === 7 && email && isNotValidEmail(email)) {
+        } else if (now + 1 === 4 && email && isNotValidPhone(email)) {
           setErrorMsg((prevValue) => ({
             ...prevValue,
             email: "Hmm... that email doesn't look right",
           }));
           return;
-        } else if (
-          now + 1 === 7 &&
-          email &&
-          !isNotValidEmail(email) &&
-          isTaskSpecificEmail(email)
-        ) {
-          setErrorMsg((prevValue) => ({
-            ...prevValue,
-            email: "Hmm... task specific emails are not allowed",
-          }));
-          return;
         }
-
+        console.log(now);
         handleQuestionNumUpdate();
       }
     }

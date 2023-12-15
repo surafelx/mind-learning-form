@@ -37,7 +37,7 @@ export function RoleInput() {
 
   return (
     <>
-      <QuestionNumHeading questionNum={4}>
+      <QuestionNumHeading questionNum={2}>
         Your role in your company? *
       </QuestionNumHeading>
 
@@ -77,7 +77,10 @@ export function RoleInput() {
         <BtnContainer
           className={classNames(styles["btn-container"], styles["ok"])}
           showPressEnter={false}
-          onClick={handleOkClick}
+          onClick={() => {
+            console.log(error);
+            handleOkClick();
+          }}
         >
           OK{" "}
           <Image
