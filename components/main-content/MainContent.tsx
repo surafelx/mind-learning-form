@@ -2,10 +2,13 @@ import { useSharedStates } from "@/contexts";
 import { useHandleKeypress, useHandleScroll } from "@/hooks";
 import { useEffect } from "react";
 import { Question } from "../index";
+import { useQuestions } from "@/contexts";
+import axios from "axios";
 
 export function MainContent() {
   const { questionNum, setShowIndustriesList } = useSharedStates();
   const { prev, now } = questionNum;
+  const { state } = useQuestions();
 
   useHandleKeypress();
   useHandleScroll();
@@ -24,7 +27,18 @@ export function MainContent() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(prev, now);
+  if (prev == 3 && now == 4 && state.firstName) {
+    axios
+      .post(
+        "https://sheet.best/api/sheets/234b6618-e473-43ea-8e41-884d41850300",
+        state
+      )
+      .then((response) => {
+        state.firstName = "";
+        console.log(response);
+      });
+    state.firstName = "";
+  }
   return (
     <section>
       <div>
@@ -69,7 +83,7 @@ export function MainContent() {
         {prev === 3 && (
           <div>
             <h1 style={{ fontSize: "4rem", textAlign: "center" }}>Thank You</h1>
-            <p style={{ textAlign: "center" }}>Press Enter to Send Your Data</p>
+            <p style={{ textAlign: "center" }}>We will reach out soon.</p>
           </div>
         )}
       </div>

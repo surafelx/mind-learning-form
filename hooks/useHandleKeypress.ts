@@ -30,7 +30,7 @@ export function useHandleKeypress() {
         } else if (now + 1 === 4 && email && isNotValidPhone(email)) {
           setErrorMsg((prevValue) => ({
             ...prevValue,
-            email: "Hmm... that email doesn't look right",
+            email: "Hmm... that phone doesn't look right",
           }));
           return;
         }

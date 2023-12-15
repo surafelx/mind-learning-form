@@ -21,7 +21,6 @@ type SharedStatesProviderType = {
 };
 
 export function SharedStatesProvider({ children }: SharedStatesProviderType) {
-  const { state } = useQuestions();
   const [questionNum, setQuestionNum] = useState<QuestionNumType>({
     prev: null,
     now: 0,
@@ -36,19 +35,6 @@ export function SharedStatesProvider({ children }: SharedStatesProviderType) {
         ? { ...prevValue }
         : { prev: prevValue.now, now: prevValue.now + 1 }
     );
-    const { prev, now } = questionNum;
-    if (prev == 3 && now == 4 && state.firstName) {
-      console.log(state);
-      axios
-        .post(
-          "https://sheet.best/api/sheets/234b6618-e473-43ea-8e41-884d41850300",
-          state
-        )
-        .then((response) => {
-          console.log(response);
-          state.firstName = "";
-        });
-    }
   }
 
   function handleOkClick() {

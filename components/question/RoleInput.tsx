@@ -73,7 +73,7 @@ export function RoleInput() {
 
       {errorMsg && <Error message={errorMsg} />}
 
-      {role && errorMsg === "" && (
+      {/* {role && errorMsg === "" && (
         <BtnContainer
           className={classNames(styles["btn-container"], styles["ok"])}
           showPressEnter={false}
@@ -90,7 +90,7 @@ export function RoleInput() {
             height={34}
           />
         </BtnContainer>
-      )}
+      )} */}
     </>
   );
 }

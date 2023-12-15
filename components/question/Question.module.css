@@ -23,6 +23,7 @@
 /***** role-dropdown *****/
 
 .role-dropdown {
+  background-color: transparent;
   display: inline-flex;
   margin-top: 30px;
 }
