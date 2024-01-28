@@ -27,7 +27,7 @@ export function MainContent() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (prev == 3 && now == 4 && state.firstName) {
+  if (prev == 3 && state.firstName && state.role && state.email) {
     axios
       .post(
         "https://sheet.best/api/sheets/6c370ba1-aaae-47e0-8bb5-64dca6cb7419",

@@ -18,7 +18,7 @@ export function Intro() {
         <br />- 15 hours/week for the last 3 weeks */}
       </QuestionBoxPara>
       <BtnContainer showPressEnter={true} onClick={handleOkClick}>
-        I agree
+        Register
       </BtnContainer>
     </>
   );
